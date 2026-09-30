@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DWEC - Ejercicios 2.1</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    section { border-bottom: 1px solid #ccc; padding-bottom: 1rem; margin-bottom: 1rem; }
+    img { max-width: 100%; border: 1px solid #ccc; border-radius: 6px; margin: .5rem 0; }
+    code { background: #eee; padding: 0 .3rem; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>DWEC · Ejercicios 2.1</h1>
+  <p>Abre la consola del navegador (<code>F12</code> → pestaña <em>Consola</em>) para ver los resultados de todos los ejercicios.</p>
+
+  <section id="ej-2-1">
+    <h2>Ejercicio 2.1 – Lista de reproducción</h2>
+    <p>Código: <code>ejercicio-01.js</code></p>
+  </section>
+
+  <section id="ej-2-2">
+    <h2>Ejercicio 2.2 – Filtrando canciones largas</h2>
+    <p>Código: <code>ejercicio-02.js</code></p>
+  </section>
+
+  <section id="ej-2-3-2-7">
+    <h2>Ejercicios 2.3 a 2.7 – Biblioteca Digital</h2>
+    <p>Código: <code>biblioteca.js</code> (módulo) y <code>app.js</code> (uso del módulo).</p>
+  </section>
+
+  <section id="ej-2-8">
+    <h2>Ejercicio 2.8 – Gestión de empleados</h2>
+    <p>Código: <code>empleados.js</code> (módulo) y <code>main.js</code> (uso del módulo).</p>
+  </section>
+
+  <section id="ia">
+    <h2>Datos generados con IA</h2>
+
+    <h3>Playlist (ejercicios 2.1 y 2.2)</h3>
+    <img src="img/prompt_playlist.png" alt="Captura del prompt para generar la playlist">
+    <img src="img/resultado_playlist.png" alt="Captura del resultado: playlist generada">
+
+    <h3>Libros (ejercicios 2.3 a 2.7)</h3>
+    <img src="img/prompt_libros.png" alt="Captura del prompt para generar los libros">
+    <img src="img/resultado_libros.png" alt="Captura del resultado: libros generados">
+
+    <h3>Empleados (ejercicio 2.8)</h3>
+    <img src="img/prompt_empleados.png" alt="Captura del prompt para generar los empleados">
+    <img src="img/resultado_empleados.png" alt="Captura del resultado: empleados generados">
+  </section>
+
+  <!-- type="module": cada script tiene su propio ámbito (así las dos "playlist" no chocan) y permite import/export -->
+  <script type="module" src="ejercicio-01.js"></script>
+  <script type="module" src="ejercicio-02.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
