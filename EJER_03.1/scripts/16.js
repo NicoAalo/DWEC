@@ -1,3 +1,3 @@
 const botonPremium = document.getElementById('btn-info-premium');
-const contenedorInfo = botonPremium.closet('.info');
+const contenedorInfo = botonPremium.closest('.info');
 console.log(contenedorInfo);
