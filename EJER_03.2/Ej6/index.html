@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>6. Pestañas de Contenido (Tabs)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        #contenedor-botones {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .btn-tab {
+            padding: 10px 20px;
+            border: none;
+            background-color: #e9ecef;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .btn-tab:hover {
+            background-color: #dde2e6;
+        }
+
+        .contenido-tab {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            background-color: #fafafa;
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sistema de Pestañas</h2>
+
+    <div id="contenedor-botones">
+        <button class="btn-tab" data-id="tab-html">HTML5</button>
+        <button class="btn-tab" data-id="tab-css">CSS3</button>
+        <button class="btn-tab" data-id="tab-js">JavaScript</button>
+    </div>
+
+    <div id="contenedor-contenidos">
+        <div id="tab-html" class="contenido-tab">
+            <h3>Contenido de HTML5</h3>
+            <p>HTML define la estructura y el significado del contenido web mediante etiquetas.</p>
+        </div>
+
+        <div id="tab-css" class="contenido-tab oculto">
+            <h3>Contenido de CSS3</h3>
+            <p>CSS permite diseñar y dar estilo visual a los elementos del documento HTML.</p>
+        </div>
+
+        <div id="tab-js" class="contenido-tab oculto">
+            <h3>Contenido de JavaScript</h3>
+            <p>JavaScript aporta interactividad, manipulación dinámica del DOM y lógica a la página.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

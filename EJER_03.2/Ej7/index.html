@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>7. Carrito de la Compra con Total Dinámico</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 650px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f4f4f4;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            background-color: #28a745;
+        }
+
+        .btn-quitar {
+            background-color: #dc3545;
+        }
+
+        .caja-total {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>Productos</h2>
+        <ul id="lista-productos">
+            <li data-price="15">
+                <span>Ratón Óptico - 15€</span>
+                <button class="btn-anadir">Añadir al carrito</button>
+            </li>
+            <li data-price="45">
+                <span>Teclado Mecánico - 45€</span>
+                <button class="btn-anadir">Añadir al carrito</button>
+            </li>
+            <li data-price="120">
+                <span>Monitor 24" - 120€</span>
+                <button class="btn-anadir">Añadir al carrito</button>
+            </li>
+            <li data-price="25">
+                <span>Auriculares USB - 25€</span>
+                <button class="btn-anadir">Añadir al carrito</button>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Tu Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <div class="caja-total">
+            Total: <span id="total">0</span>€
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>9. Filtro de Búsqueda Manual en una Lista</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 450px;
+            margin: 30px auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            padding: 10px;
+            margin-bottom: 6px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Filtro de Ciudades por País</h2>
+
+    <input type="text" id="buscador" placeholder="Escribe un país (ej: España, Italia)..." oninput="filtrarPorPais(this.value)">
+
+    <ul id="lista-ciudades"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
