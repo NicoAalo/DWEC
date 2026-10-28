@@ -57,15 +57,101 @@ tarjeta.addEventListener('dblclick', () => {
 
 
 // ---------- Ejercicio 3 · Espejo de texto ----------
+const entradaTexto = document.getElementById('campo-texto');
+const espejoTexto = document.getElementById('eco-texto');
+const caracteresRestantes = document.getElementById('caracteres-restantes');
+const maxcaracteres = 30;
+
+entradaTexto.addEventListener('input', () => {
+    const textoactual = entradaTexto.value;
+    const restantes = maxcaracteres - textoactual.length;
+
+    espejoTexto.textContent = textoactual
+    caracteresRestantes.textContent = restantes;
+    caracteresRestantes.classList.toggle('poco', restantes <= 5);
+});
 
 
 // ---------- Ejercicio 4 · Mover con el teclado ----------
+const areaJuego = document.getElementById('area-juego');
+const cuadrado = document.getElementById('cuadrado');
+const posicionCuadrado = document.getElementById('posicion-cuadrado');
+
+let posX = 0;
+let posY = 0;
+const PASO = 10;
+
+window.addEventListener('keydown', (e) => {
+    if (document.activeElement.tagName === 'INPUT') return;
+
+    const teclasMovimiento = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
+    if (!teclasMovimiento.includes(e.key)) return;
+
+    e.preventDefault();
+
+    const maxX = areaJuego.clientWidth - cuadrado.offsetWidth;
+    const maxY = areaJuego.clientHeight - cuadrado.offsetHeight;
+
+    switch (e.key) {
+        case 'ArrowUp':
+        posY = Math.max(0, posY - PASO);
+        break;
+        case 'ArrowDown':
+        posY = Math.min(maxY, posY + PASO);
+        break;
+        case 'ArrowLeft':
+        posX = Math.max(0, posX - PASO);
+        break;
+        case 'ArrowRight':
+        posX = Math.min(maxX, posX + PASO);
+        break;
+        case ' ':
+        posX = 0;
+        posY = 0;
+        break;
+    }
+
+    cuadrado.style.left = `${posX}px`;
+    cuadrado.style.top = `${posY}px`;
+    posicionCuadrado.textContent = `Posición: (${posX}, ${posY})`;
+    });
 
 
 // ---------- Ejercicio 5 · Paleta de colores ----------
+const paleta = document.getElementById('paleta');
+const lienzo = document.getElementById('lienzo');
+const nombreColor = document.getElementById('nombre-color');
+
+paleta.addEventListener('click', (e) => {
+    const muestra = e.target.closest('.muestra');
+    if(!muestra) return;
+
+    const color = muestra.getAttribute('data-color');
+    const nombre = muestra.getAttribute('data-nombre');
+
+    lienzo.style.backgroundColor = color;
+    nombreColor.textContent = nombre;
+})
 
 
 // ---------- Ejercicio 6 · Grupo con foco ----------
+const grupoContacto = document.getElementById('grupo-contacto');
+const mensajeFoco = document.getElementById('mensaje-foco');
+
+grupoContacto.addEventListener('focusin', (e) => {
+    if(e.target.tagName === "INPUT"){
+        grupoContacto.classList.add('activo');
+        const placeholder = e.target.getAttribute('placeholder');
+        mensajeFoco.innerHTML = `Editando: <i>${placeholder}</i>`;
+    }
+});
+
+grupoContacto.addEventListener('focusout', (e) => {
+    if (!grupoContacto.contains(e.relatedTarget)) {
+        grupoContacto.classList.remove('activo');
+        mensajeFoco.textContent = 'Ningún campo activo';
+    }
+});
 
 
 // ---------- Ejercicio 7 · Burbuja y captura ----------
