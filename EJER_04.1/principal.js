@@ -155,6 +155,58 @@ grupoContacto.addEventListener('focusout', (e) => {
 
 
 // ---------- Ejercicio 7 · Burbuja y captura ----------
+const cajas = [
+  { elemento: document.getElementById('caja-externa'), nombre: 'Externa' },
+  { elemento: document.getElementById('caja-media'), nombre: 'Media' },
+  { elemento: document.getElementById('caja-interna'), nombre: 'Interna' }
+];
+const btnLimpiarFlujo = document.getElementById('boton-limpiar-flujo');
+const registroFlujo = document.getElementById('registro-flujo');
+
+function registrarPaso(texto) {
+  const li = document.createElement('li');
+  li.textContent = texto;
+  registroFlujo.appendChild(li);
+}
+
+cajas.forEach(({ elemento, nombre }) => {
+  elemento.addEventListener('click', () => {
+    registrarPaso(nombre);
+  });
+
+  elemento.addEventListener('click', () => {
+    registrarPaso(`${nombre} (captura)`);
+  }, true);
+});
+
+btnLimpiarFlujo.addEventListener('click', () => {
+  registroFlujo.innerHTML = '';
+});
 
 
 // ---------- Ejercicio 8 · Detener y cancelar ----------
+const tarjetaProducto = document.getElementById('tarjeta-producto');
+const btnComprar = document.getElementById('boton-comprar');
+const enlaceInfo = document.getElementById('enlace-info');
+const mensajeEstado = document.getElementById('mensaje-estado');
+
+function agregarLineaEstado(texto) {
+  const linea = document.createElement('div');
+  linea.textContent = texto;
+  mensajeEstado.appendChild(linea);
+}
+
+tarjetaProducto.addEventListener('click', () => {
+  agregarLineaEstado('Has pulsado la tarjeta');
+});
+
+btnComprar.addEventListener('click', (e) => {
+  e.stopPropagation(); 
+  agregarLineaEstado('Producto comprado');
+});
+
+enlaceInfo.addEventListener('click', (e) => {
+  e.preventDefault(); 
+  e.stopPropagation(); 
+  agregarLineaEstado('Enlace bloqueado');
+});
